@@ -1,4 +1,4 @@
-
+http://www.jianshu.com/p/5bb86a770e23?winzoom=1
 一、json-server介绍及安装
 
 1、介绍
