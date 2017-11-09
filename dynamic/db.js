@@ -30,13 +30,17 @@ module.exports = function() {
   // }
   const data = Mock.mock({
     'news': {
-      'list|5-10': [{
-        'id|+1': 1,
-        'title|8-20': '@cword',
-        'desc|0-10': '@cparagraph',
-        'views': '@integer(100, 5000)',
-        'images': '@image(200x100, @color, @word(4))'
-      }]
+      'code': 1,
+      'message': '请求成功',
+      'data': {
+        'list|5-10': [{
+          'id|+1': 1,
+          'title|8-20': '@cword',
+          'desc|0-10': '@cparagraph',
+          'views': '@integer(100, 5000)',
+          'images': '@image(200x100, @color, @word(4))'
+        }]
+      }
     }
   })
 

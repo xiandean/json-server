@@ -24,10 +24,7 @@ server.use((req, res, next) => {
 })
 
 router.render = (req, res) => {
-	res.jsonp({
-		code: 0,
-		data: res.locals.data
-	})
+	res.jsonp(res.locals.data)
 }
 
 server.use("/api",router);
