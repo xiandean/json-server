@@ -29,6 +29,30 @@ module.exports = function() {
   //   })
   // }
   const data = Mock.mock({
+    'slider': {
+      'code': 1,
+      'message': '请求成功',
+      'data': {
+        'list|3-5': [{
+           'img': '@image(350x100, @color, @word)',
+           'url': '#'
+        }]
+      }
+    },
+    'products': {
+      'code': 1,
+      'message': '请求成功',
+      'data': { 
+        'list|6': [{
+          "id|+1": 1,
+          "src": "@image(500x500, @color, image)",
+          "url": "detail/",
+          "title|8-20": "@cword",
+          "newPrice": "￥@integer(100, 5000)",
+          "oldPrice": "￥@integer(100, 5000)"
+        }]
+      }
+    },
     'news': {
       'code': 1,
       'message': '请求成功',
@@ -38,7 +62,7 @@ module.exports = function() {
           'title|8-20': '@cword',
           'desc|0-10': '@cparagraph',
           'views': '@integer(100, 5000)',
-          'images': '@image(200x100, @color, @word(4))'
+          'images': '@image(200x100, @color, @word)'
         }]
       }
     }
