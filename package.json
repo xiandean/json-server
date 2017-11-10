@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "cd static && nodemon server.js",
-    "dserver": "cd dynamic && nodemon server.js"
+    "server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",

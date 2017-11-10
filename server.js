@@ -1,31 +1,44 @@
 const path = require('path');
-const config = require('./config');
+const config = require('./config/config');
 const jsonServer = require('json-server');
+const rules = require('./routes/routes');
+const dbfile = require(path.join(__dirname, config.DB_FILE));
 
 const ip = config.SERVER;
 const port = config.PORT;
 const db_file = config.DB_FILE;
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, config.DB_FILE));
+const router = jsonServer.router(dbfile);
 const middlewares = jsonServer.defaults();
+
+//console.log(dbfile())
+//console.log(rules);
 
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
+
+// server.get('/echo', (req, res) => {
+//     res.jsonp(req.query)
+// })
 
 server.use((req, res, next) => {
  res.header('X-Hello', 'World');
  next();
 })
+
 router.render = (req, res) => {
 	res.jsonp({
-		code: 0,
-		data: res.locals.data
-	})
+        code: 0,
+        message: '请求成功',
+        data: res.locals.data
+    })
 }
-server.use("/api",router);
 
+server.use("/api",router);
+server.use(jsonServer.rewriter(rules));
 server.use(router);
+
 server.listen({
 	host: ip,
 	port: port,
